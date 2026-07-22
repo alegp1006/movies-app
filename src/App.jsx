@@ -2,19 +2,30 @@ import "./App.css";
 import { ListMovies } from "./components/ListMovies";
 import { Movies } from "./components/Movies";
 import { MoviesForm } from "./components/MoviesForm";
-import { useMovies } from "./hooks/useMovies";
-import { useSearchMovies } from "./hooks/useSearchMovies";
+import { useMoviesForm } from "./hooks/useMoviesForm";
 
 function App() {
-  const { query } = useSearchMovies();
-  const { movies: sortedMovies, loading } = useMovies({ query });
-  console.log(sortedMovies);
+  const {
+    sortedMovies,
+    query,
+    error,
+    loading,
+    handleChange,
+    handleSubmit,
+    hanldeChangeSort,
+  } = useMoviesForm();
 
   return (
     <>
       <header>
         <h1>buscardor de peliculas</h1>
-        <MoviesForm />
+        <MoviesForm
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          hanldeChangeSort={hanldeChangeSort}
+          query={query}
+          error={error}
+        />
       </header>
       {loading && <p>cargando...</p>}
       <main>

@@ -1,10 +1,10 @@
-import { useSearchMovies } from "../hooks/useSearchMovies";
-import { useMoviesForm } from "../hooks/useMoviesForm";
-
-export function MoviesForm() {
-  const { query, error, handleChange } = useSearchMovies();
-  const { handleSubmit, hanldeChangeSort } = useMoviesForm({ query });
-
+export function MoviesForm({
+  handleChange,
+  handleSubmit,
+  hanldeChangeSort,
+  query,
+  error,
+}) {
   return (
     <form onSubmit={handleSubmit}>
       <input

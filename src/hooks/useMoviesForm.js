@@ -1,9 +1,16 @@
 import { useState } from "react";
 import { useMovies } from "./useMovies";
+import { useSearchMovies } from "./useSearchMovies";
 
-export function useMoviesForm({ query }) {
+export function useMoviesForm() {
   const [sort, setSort] = useState(false);
-  const { getMovies, movies } = useMovies({ query, sort });
+  const { query, error, handleChange } = useSearchMovies();
+
+  const {
+    movies: sortedMovies,
+    loading,
+    getMovies,
+  } = useMovies({ query, sort });
 
   const hanldeChangeSort = () => {
     setSort(!sort);
@@ -12,12 +19,16 @@ export function useMoviesForm({ query }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     getMovies({ query });
-    console.log(movies);
   };
 
   return {
     handleSubmit,
     hanldeChangeSort,
+    sort,
     query,
+    error,
+    loading,
+    handleChange,
+    sortedMovies,
   };
 }

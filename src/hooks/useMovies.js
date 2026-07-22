@@ -28,7 +28,6 @@ export function useMovies({ query, sort }) {
       ? [...movies].sort((a, b) => a.title.localeCompare(b.title))
       : movies;
   }, [movies, sort]);
-  console.log("las peliculas cargadas=>" + movies);
 
   return { movies: sortedMovies, getMovies, loading, error };
 }
