@@ -1,8 +1,10 @@
 import "./App.css";
 import { ListMovies } from "./components/ListMovies";
 import { Modal } from "./components/Modal";
+import { MovieInfo } from "./components/MovieInfo";
 import { Movies } from "./components/Movies";
 import { MoviesForm } from "./components/MoviesForm";
+import { useMoviesById } from "./hooks/useMovieById";
 import { useMoviesForm } from "./hooks/useMoviesForm";
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
     handleSubmit,
     hanldeChangeSort,
   } = useMoviesForm();
+  const { movieInfo } = useMoviesById();
 
   return (
     <>
@@ -27,7 +30,9 @@ function App() {
           query={query}
           error={error}
         />
-        <Modal>hola</Modal>
+        <Modal>
+          <MovieInfo movieID={movieInfo} />
+        </Modal>
       </header>
       {loading && <p>cargando...</p>}
       <main>

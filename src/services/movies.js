@@ -15,7 +15,6 @@ export async function searchMovies({ query }) {
       poster: m.Poster,
       type: m.Type,
     }));
-    console.log(moviesTyped);
     return moviesTyped;
   } catch (e) {
     throw new Error("error to search movies: " + e.message);
