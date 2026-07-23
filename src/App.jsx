@@ -1,5 +1,6 @@
 import "./App.css";
 import { ListMovies } from "./components/ListMovies";
+import { Modal } from "./components/Modal";
 import { Movies } from "./components/Movies";
 import { MoviesForm } from "./components/MoviesForm";
 import { useMoviesForm } from "./hooks/useMoviesForm";
@@ -26,6 +27,7 @@ function App() {
           query={query}
           error={error}
         />
+        <Modal>hola</Modal>
       </header>
       {loading && <p>cargando...</p>}
       <main>
