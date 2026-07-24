@@ -37,7 +37,12 @@ export function ListMovies({ movies }) {
               }}>
               <h3>{m.title}</h3>
               <p>{m.year}</p>
-              <img style={{ width: "100%" }} src={m.poster} alt={m.title} />
+              <img
+                style={{ width: "100%" }}
+                className="img-movie"
+                src={m.poster}
+                alt={m.title}
+              />
             </li>
           );
         })}

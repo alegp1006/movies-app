@@ -1,3 +1,6 @@
+import { Search } from "./Icons";
+import "../styles/input.css";
+
 export function MoviesForm({
   handleChange,
   handleSubmit,
@@ -6,23 +9,33 @@ export function MoviesForm({
   error,
 }) {
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        value={query}
-        onChange={handleChange}
-        type="text"
-        name="search-input"
-      />
+    <form onSubmit={handleSubmit} className="form">
+      <fieldset className="fieldset">
+        <label className="input-label">
+          <Search width={"20px"} height={"20px"} />
+          <input
+            className="input-search"
+            placeholder="buscar..."
+            value={query}
+            onChange={handleChange}
+            type="text"
+            name="search-input"
+          />
+        </label>
+        <p style={{ color: "red" }}>{error}</p>
+      </fieldset>
 
-      <label>
-        <input type="checkbox" onChange={hanldeChangeSort} />
-        Ordenar
-      </label>
-
-      <p style={{ color: "red" }}>{error}</p>
       <button disabled={query === ""} type="submit">
         buscar
       </button>
+      <label className="sort">
+        <input
+          type="checkbox"
+          className="checkbox-sort"
+          onChange={hanldeChangeSort}
+        />
+        Ordenar
+      </label>
     </form>
   );
 }

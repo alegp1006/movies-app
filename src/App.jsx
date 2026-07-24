@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       <header>
-        <h1>buscardor de peliculas</h1>
+        <h1>buscador de peliculas</h1>
         <MoviesForm
           handleChange={handleChange}
           handleSubmit={handleSubmit}
@@ -38,13 +38,15 @@ function App() {
       <main>
         <Movies movies={sortedMovies} query={query} />
       </main>
-      <button
-        style={{ margin: "20px" }}
-        onClick={() => {
-          scrollTo(0, 0);
-        }}>
-        volver
-      </button>
+      {sortedMovies.length > 0 && (
+        <button
+          style={{ margin: "20px" }}
+          onClick={() => {
+            scrollTo(0, 0);
+          }}>
+          volver
+        </button>
+      )}
     </>
   );
 }

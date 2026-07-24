@@ -1,4 +1,6 @@
 import { useGlobalMoviesContext } from "../context/useGlobalMoviesContext";
+import "../styles/movieInfo.css";
+import { Star } from "./Icons";
 
 export function MovieInfo() {
   const { movieInfo, loading } = useGlobalMoviesContext(); // <-- Leemos los datos del Context
@@ -24,7 +26,9 @@ export function MovieInfo() {
             <strong>Idioma:</strong> {movieInfo.language}
           </p>
           <p>
-            <strong>Calificación:</strong> ⭐ {movieInfo.rating}
+            <strong>Calificación:</strong>{" "}
+            <Star width={"12px"} height={"12px"} color={"#edd732"} />{" "}
+            {movieInfo.rating}
           </p>
           <p>
             <strong>Tipo:</strong> {movieInfo.type}

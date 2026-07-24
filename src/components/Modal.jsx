@@ -43,7 +43,7 @@ export const Modal = ({ children }) => {
       <div className="modal" onClick={handleContentClick} ref={modalRef}>
         {children}
         <button className="close-button" onClick={closeModal}>
-          Close
+          Cerrar
         </button>
       </div>
     </div>,

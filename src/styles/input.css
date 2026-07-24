@@ -1,0 +1,44 @@
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.input-label {
+  margin: auto;
+  width: 100%;
+  max-width: 300px;
+  padding: 6px 12px;
+  border: 1px solid #646cff;
+  border-radius: 12px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 2px;
+}
+
+.input-label:hover {
+  cursor: text;
+  box-shadow: 0 0 10px #646cff;
+}
+
+.input-search {
+  border: none;
+  outline: none;
+  background-color: initial;
+  font-size: 16px;
+}
+
+.fieldset {
+  width: 100%;
+  max-width: 300px;
+  border: none;
+  height: 100px;
+}
+
+.sort {
+  padding-top: 10px;
+}
