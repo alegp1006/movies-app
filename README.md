@@ -1,74 +1,118 @@
-Enunciado
-Crea una aplicación para buscar películas
+# Movies App
 
-API a usar: - https://www.omdbapi.com/ Consigue la API Key en la propia página web registrando tu email.
+Aplicación web desarrollada en React para buscar películas utilizando la API de OMDb. El proyecto combina una interfaz simple y moderna con una arquitectura limpia, hooks personalizados, gestión de estado con Context API y pruebas end-to-end para asegurar una experiencia fiable.
 
-Requerimientos:
+## ¿Qué hace el proyecto?
 
-✅ Necesita mostrar un input para buscar la película y un botón para buscar.
+Esta app permite a los usuarios:
 
-✅ Lista las películas y muestra el título, año y poster.
+- Buscar películas escribiendo un título en el campo de búsqueda.
+- Visualizar resultados en una cuadrícula responsive con título, año y póster.
+- Abrir un modal con información detallada de cada película seleccionada.
+- Ordenar los resultados alfabéticamente mediante una opción interactiva.
+- Recibir feedback visual cuando la búsqueda está cargando o cuando no hay resultados.
 
-✅ Que el formulario funcione
+La experiencia está diseñada para ser intuitiva, rápida y preparada para demostrar buenas prácticas de desarrollo frontend.
 
-✅ Haz que las películas se muestren en un grid responsive.
+## Valor para reclutadores
 
-✅ Hacer el fetching de datos a la API
+Este proyecto no solo funciona como una pequeña app de películas, sino que demuestra habilidades reales de desarrollo frontend:
 
-Primera iteración:
+- Manejo de React y componentes funcionales.
+- Uso de hooks personalizados para encapsular lógica de negocio.
+- Integración con APIs externas mediante servicios y manejo de errores.
+- Arquitectura escalable con Context API para estado global.
+- Implementación de modales con React Portals.
+- Pruebas de usuario con Playwright.
+- Organización de código en capas claras: componentes, hooks, servicios y contextos.
 
-✅ Evitar que se haga la misma búsqueda dos veces seguidas.
+## Tecnologías utilizadas
 
-Haz que la búsqueda se haga automáticamente al escribir.
+- React 19
+- Vite 7
+- JavaScript ES6+
+- CSS personalizado para UI responsive
+- React Context API
+- OMDb API
+- Playwright para pruebas E2E
+- Testing Library DOM
+- ESLint para calidad de código
 
-Evita que se haga la búsqueda continuamente al escribir (debounce)
+## Arquitectura y enfoque técnico
 
-## testing plawright
+El proyecto está estructurado de forma modular para separar responsabilidades:
 
-🟢 Básico (funcionalidad esencial)
+- Components: interfaces de usuario y vistas principales.
+- Hooks: lógica reutilizable para búsqueda, validación y carga de datos.
+- Services: abstracción de las llamadas a la API.
+- Context: manejo de estado compartido para el modal y la información de la película.
 
-✅1. Abrir la app y verificar que el input de búsqueda está visible.
-✅2. Escribir un texto en el input y comprobar que se refleja correctamente.
-✅3. Hacer clic en el botón de buscar y validar que aparecen resultados.
-✅4. Buscar una película conocida (“Avenger”) y confirmar que aparece en la lista.
-✅5. Buscar un título inexistente y validar que se muestra el mensaje de “sin resultados”.
-✅6. Verificar que cada resultado muestra título, año y póster.
-✅7. Comprobar que el botón de búsqueda está deshabilitado si el input está vacío.
+### Patrones y técnicas aplicadas
 
----
+- Componentes funcionales con estado y efectos.
+- Hooks personalizados para organizar la lógica de búsqueda y carga.
+- Memoización con useMemo y useCallback para optimizar renderizados y evitar operaciones redundantes.
+- Manejo de estados de carga, error y vacío.
+- Modal con portal para mejorar la experiencia de usuario.
+- Estilado responsive con CSS propio.
 
-🟡 Intermedio (flujo y lógica)
+## Recursos utilizados
 
-8. Escribir en el input y validar que la búsqueda se dispara automáticamente sin pulsar el botón.
-✅9. Probar que al borrar el texto del input se limpia la lista de resultados.
-✅10. Buscar varias películas seguidas y confirmar que la lista se actualiza correctamente.
-✅11. Validar que los resultados se muestran en formato de cuadrícula.
-✅12. Comprobar que el scroll funciona cuando hay muchos resultados.
-✅13. Probar que el input mantiene el valor tras la búsqueda.
-14. Validar que se pueden usar mayúsculas/minúsculas indistintamente (“matrix” vs “Matrix”).
+- OMDb API: fuente principal de datos de películas.
+- Documentación oficial de React para composición de componentes y hooks.
+- Vite como herramienta de desarrollo y build rápida.
+- Playwright y Testing Library para pruebas funcionales y validación de flujos.
+- ESLint y buenas prácticas de programación para mantener el código limpio.
 
----
+## Configuración inicial
 
-🔴 Avanzado (robustez y edge cases)
+1. Clona el repositorio.
+2. Instala las dependencias:
 
-15. Simular una búsqueda con caracteres especiales (“@#$%”) y validar que no rompe la app.
-16. Probar una búsqueda muy larga (>100 caracteres) y confirmar que se maneja correctamente.
-17. Validar que la app muestra un mensaje de error si la API devuelve fallo.
-18. Simular desconexión de red y comprobar que se muestra feedback adecuado.
-19. Probar que al recargar la página se mantiene el último término buscado.
-20. Validar que el hook useMovies no dispara múltiples fetch innecesarios (optimización).
-21. Probar que la app no se bloquea si la API devuelve resultados vacíos.
+```bash
+pnpm install
+```
 
----
+3. Crea un archivo de entorno con tu API key de OMDb:
 
-🚀 Experto (flujo completo y accesibilidad)
+```bash
+VITE_KEY_MOVIES_API=tu_api_key
+```
 
-22. Simular un flujo completo: abrir → buscar → ver resultados → limpiar → recargar.
-23. Validar que los resultados se actualizan en menos de X segundos (performance).
-24. Probar que los elementos tienen etiquetas accesibles (aria-label, alt en imágenes).
-25. Navegar con teclado (Tab/Enter) y confirmar que se puede buscar sin mouse.
-26. Validar que los mensajes de error son legibles por screen readers.
-27. Probar que el layout se adapta en pantallas pequeñas (responsive).
-28. Simular múltiples usuarios buscando al mismo tiempo (concurrent requests).
-29. Validar que la app no hace llamadas duplicadas a la API al escribir rápido.
-30. Probar que se puede copiar el título de una película desde la interfaz (usabilidad).
+4. Inicia la app en modo desarrollo:
+
+```bash
+pnpm dev
+```
+
+## Pruebas
+
+El proyecto incluye pruebas end-to-end con Playwright para validar:
+
+- visualización del formulario de búsqueda,
+- aparición de resultados,
+- manejo de búsquedas vacías o sin coincidencias,
+- renderizado de tarjetas de películas,
+- comportamiento del listado al actualizar búsquedas.
+
+Para ejecutar las pruebas:
+
+```bash
+pnpm exec playwright test
+```
+
+## Estructura del proyecto
+
+```text
+src/
+  components/     Componentes de UI
+  context/        Contextos para modal y datos globales
+  hooks/          Lógica reutilizable con hooks
+  services/       Consumo de APIs externas
+  styles/         Estilos CSS
+  App.jsx         Componente principal
+```
+
+## Resumen ejecutivo
+
+Movies App es un ejemplo de una aplicación frontend moderna, con foco en usabilidad, arquitectura limpia y calidad técnica. Sirve como una excelente muestra del trabajo con React, integración de APIs, manejo de estado y pruebas funcionales, ideal para presentar en un portafolio o entrevista técnica.
