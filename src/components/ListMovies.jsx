@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useModalContext } from "../context/useModalContext";
 import { useGlobalMoviesContext } from "../context/useGlobalMoviesContext";
+import "../styles/movies.css";
+import { Date } from "./Icons";
 
 export function ListMovies({ movies }) {
   const [movieId, setMovieId] = useState();
@@ -35,14 +37,23 @@ export function ListMovies({ movies }) {
                 openModal();
                 handleGetMovieId(m.id);
               }}>
-              <h3>{m.title}</h3>
-              <p>{m.year}</p>
               <img
                 style={{ width: "100%" }}
                 className="img-movie"
                 src={m.poster}
                 alt={m.title}
               />
+              <section className="data-movie">
+                <h3 className="title-movie">
+                  {m.title}
+                  <span className="type-movie">{m.type}</span>
+                </h3>
+
+                <div className="year-movie-container">
+                  <Date width="14px" height="14px" />
+                  <p className="year-movie">{m.year}</p>
+                </div>
+              </section>
             </li>
           );
         })}

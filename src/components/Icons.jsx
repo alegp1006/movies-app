@@ -31,3 +31,39 @@ export function Search({ width, height }) {
     </svg>
   );
 }
+
+export function Date({ width = "10px", height = "10px" }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={`${width}`}
+      height={`${height}`}
+      viewBox="0 0 16 16">
+      <path d="M0 0h16v16H0z" fill="none" />
+      <path
+        fill="currentColor"
+        d="M14.5 16h-13C.67 16 0 15.33 0 14.5v-12C0 1.67.67 1 1.5 1h13c.83 0 1.5.67 1.5 1.5v12c0 .83-.67 1.5-1.5 1.5M1.5 2c-.28 0-.5.22-.5.5v12c0 .28.22.5.5.5h13c.28 0 .5-.22.5-.5v-12c0-.28-.22-.5-.5-.5z"
+      />
+      <path
+        fill="currentColor"
+        d="M4.5 4c-.28 0-.5-.22-.5-.5v-3c0-.28.22-.5.5-.5s.5.22.5.5v3c0 .28-.22.5-.5.5m7 0c-.28 0-.5-.22-.5-.5v-3c0-.28.22-.5.5-.5s.5.22.5.5v3c0 .28-.22.5-.5.5m4 2H.5C.22 6 0 5.78 0 5.5S.22 5 .5 5h15c.28 0 .5.22.5.5s-.22.5-.5.5"
+      />
+    </svg>
+  );
+}
+
+export function Movie({ width = "10px", height = "10px" }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={`${width}`}
+      height={`${height}`}
+      viewBox="0 0 24 24">
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path
+        fill="currentColor"
+        d="m4.616 5l1.5 3h3l-1.5-3h2l1.5 3h3l-1.5-3h2l1.5 3h3l-1.5-3h1.769q.69 0 1.153.463T21 6.616v10.769q0 .69-.462 1.153T19.385 19H4.615q-.69 0-1.152-.462T3 17.384V6.616q0-.691.463-1.153T4.615 5M4 9v8.385q0 .269.173.442t.443.173h14.769q.269 0 .442-.173t.173-.442V9zm0 0v9z"
+      />
+    </svg>
+  );
+}
