@@ -42,6 +42,8 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
       - name: Construir
+        env:
+          VITE_KEY_MOVIES_API: ${{ secrets.VITE_KEY_MOVIES_API }}
         run: npm run build
       - name: Configurar Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
