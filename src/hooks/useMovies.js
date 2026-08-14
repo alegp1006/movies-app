@@ -1,7 +1,7 @@
 import { useState, useRef, useMemo, useCallback } from "react";
 import { searchMovies } from "../services/movies";
 
-export function useMovies({ query, sort }) {
+export function useMovies({ query = "Avengers", sort }) {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
