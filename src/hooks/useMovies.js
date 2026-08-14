@@ -1,8 +1,9 @@
 import { useState, useRef, useMemo, useCallback } from "react";
 import { searchMovies } from "../services/movies";
+import { useStateLocalStorage } from "./useStateLocalStorage";
 
 export function useMovies({ query = "Avengers", sort }) {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useStateLocalStorage("movies-state", []);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const previusSearch = useRef(query);

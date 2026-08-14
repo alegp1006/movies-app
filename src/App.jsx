@@ -38,7 +38,7 @@ function App() {
       <main>
         <Movies movies={sortedMovies} query={query} />
       </main>
-      {sortedMovies.length > 0 && (
+      {/* {sortedMovies.lenght > 0 && (
         <button
           style={{ margin: "20px" }}
           onClick={() => {
@@ -46,7 +46,7 @@ function App() {
           }}>
           volver
         </button>
-      )}
+      )} */}
     </>
   );
 }
