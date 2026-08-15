@@ -16,6 +16,8 @@ export async function movieById(id) {
       rating: json.imdbRating,
       id: json.imdbID,
       type: json.Type,
+      description: json.Plot,
+      date: json.Released,
     };
     return movieInfo;
   } catch (e) {
