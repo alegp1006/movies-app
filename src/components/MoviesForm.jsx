@@ -1,5 +1,6 @@
 import { Search } from "./Icons";
 import "../styles/input.css";
+import { Checkbox } from "./Checkbox";
 
 export function MoviesForm({
   handleChange,
@@ -36,6 +37,7 @@ export function MoviesForm({
         />
         Ordenar
       </label>
+      <Checkbox onChange={hanldeChangeSort} />
     </form>
   );
 }
