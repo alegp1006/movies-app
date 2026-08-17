@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import "../styles/modal.css";
 import { useModalContext } from "../context/useModalContext";
+import { ArrowBack } from "./Icons";
 
 const eventListener = "keydown";
 
@@ -41,10 +42,10 @@ export const Modal = ({ children }) => {
   return createPortal(
     <div className="overlay" onClick={closeModal}>
       <div className="modal" onClick={handleContentClick} ref={modalRef}>
-        {children}
         <button className="close-button" onClick={closeModal}>
-          Cerrar
+          <ArrowBack width="25px" height="25px" />
         </button>
+        {children}
       </div>
     </div>,
     modalRoot,
