@@ -2,9 +2,8 @@ import "../App.css";
 import { ListMovies } from "./ListMovies";
 import { NoListMovies } from "./NoListMovies";
 
-export function Movies({ movies, query }) {
+export function Movies({ movies }) {
   const hasMovies = movies?.length > 0;
-  if (query === "") movies = [];
 
   return hasMovies ? <ListMovies movies={movies} /> : <NoListMovies />;
 }
