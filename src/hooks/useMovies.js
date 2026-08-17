@@ -25,11 +25,5 @@ export function useMovies() {
     }
   }, []);
 
-  // const sortedMovies = useMemo(() => {
-  //   return sort
-  //     ? [...movies].sort((a, b) => a.title.localeCompare(b.title))
-  //     : movies;
-  // }, [movies, sort]);
-
   return { movies, getMovies, loading, error };
 }
