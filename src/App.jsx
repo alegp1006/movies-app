@@ -4,49 +4,23 @@ import { Modal } from "./components/Modal";
 import { MovieInfo } from "./components/MovieInfo";
 import { Movies } from "./components/Movies";
 import { MoviesForm } from "./components/MoviesForm";
-import { useMoviesById } from "./hooks/useMovieById";
-import { useMoviesForm } from "./hooks/useMoviesForm";
+import { useGlobalMoviesContext } from "./context/useGlobalMoviesContext";
 
 function App() {
-  const {
-    sortedMovies,
-    query,
-    error,
-    loading,
-    handleChange,
-    handleSubmit,
-    hanldeChangeSort,
-  } = useMoviesForm();
-  const { movieInfo } = useMoviesById();
-
+  const { movieInfo, movies, loadingMovies } = useGlobalMoviesContext();
   return (
     <>
       <header>
         <h1>buscador de peliculas</h1>
-        <MoviesForm
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          hanldeChangeSort={hanldeChangeSort}
-          query={query}
-          error={error}
-        />
+        <MoviesForm />
         <Modal>
           <MovieInfo movieID={movieInfo} />
         </Modal>
       </header>
-      {loading && <p>cargando...</p>}
+      {loadingMovies && <p>Loading...</p>}
       <main>
-        <Movies movies={sortedMovies} query={query} />
+        <Movies movies={movies} />
       </main>
-      {/* {sortedMovies.lenght > 0 && (
-        <button
-          style={{ margin: "20px" }}
-          onClick={() => {
-            scrollTo(0, 0);
-          }}>
-          volver
-        </button>
-      )} */}
     </>
   );
 }

@@ -1,14 +1,15 @@
-import { useState, useRef, useMemo, useCallback } from "react";
+import { useState, useRef, useCallback } from "react";
 import { searchMovies } from "../services/movies";
 import { useStateLocalStorage } from "./useStateLocalStorage";
 
-export function useMovies({ query = "Avengers", sort }) {
+export function useMovies() {
   const [movies, setMovies] = useStateLocalStorage("movies-state", []);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const previusSearch = useRef(query);
+  const previusSearch = useRef("");
 
-  const getMovies = useCallback(async ({ query }) => {
+  const getMovies = useCallback(async (query) => {
+    console.log(previusSearch.current);
     if (query === previusSearch.current) return;
 
     try {
@@ -24,11 +25,11 @@ export function useMovies({ query = "Avengers", sort }) {
     }
   }, []);
 
-  const sortedMovies = useMemo(() => {
-    return sort
-      ? [...movies].sort((a, b) => a.title.localeCompare(b.title))
-      : movies;
-  }, [movies, sort]);
+  // const sortedMovies = useMemo(() => {
+  //   return sort
+  //     ? [...movies].sort((a, b) => a.title.localeCompare(b.title))
+  //     : movies;
+  // }, [movies, sort]);
 
-  return { movies: sortedMovies, getMovies, loading, error };
+  return { movies, getMovies, loading, error };
 }
