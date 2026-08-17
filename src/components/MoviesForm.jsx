@@ -4,7 +4,6 @@ import { Checkbox } from "./Checkbox";
 import { useForm } from "react-hook-form";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMoviesForm } from "../hooks/useMoviesForm";
 import { useGlobalMoviesContext } from "../context/useGlobalMoviesContext";
 
 const FormSchema = z.object({
@@ -30,9 +29,8 @@ export function MoviesForm() {
       query: "",
     },
   });
-  const { hanldeChangeSort } = useMoviesForm();
   const value = getValues("query");
-  const { getMovies } = useGlobalMoviesContext();
+  const { getMovies, hanldeChangeSort } = useGlobalMoviesContext();
 
   return (
     <form

@@ -5,9 +5,11 @@ import { MovieInfo } from "./components/MovieInfo";
 import { Movies } from "./components/Movies";
 import { MoviesForm } from "./components/MoviesForm";
 import { useGlobalMoviesContext } from "./context/useGlobalMoviesContext";
+import { useSortMovies } from "./hooks/useSortMovies";
 
 function App() {
-  const { movieInfo, movies, loadingMovies } = useGlobalMoviesContext();
+  const { movieInfo, movies, loadingMovies, sort } = useGlobalMoviesContext();
+  const { sortedMovies } = useSortMovies({ movies, sort });
   return (
     <>
       <header>
@@ -19,7 +21,7 @@ function App() {
       </header>
       {loadingMovies && <p>Loading...</p>}
       <main>
-        <Movies movies={movies} />
+        <Movies movies={sortedMovies} />
       </main>
     </>
   );
