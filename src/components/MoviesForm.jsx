@@ -44,7 +44,7 @@ export function MoviesForm() {
           <Search width={"20px"} height={"20px"} />
           <input
             className="input-search"
-            placeholder="buscar..."
+            placeholder="search..."
             type="text"
             name="search-input"
             max={20}
@@ -61,7 +61,7 @@ export function MoviesForm() {
       </button>
       <label className="sort">
         <Checkbox onChange={hanldeChangeSort} />
-        Ordenar
+        Sort by title
       </label>
     </form>
   );
