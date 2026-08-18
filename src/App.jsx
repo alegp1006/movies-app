@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <header>
-        <h1>buscador de peliculas</h1>
+        <h1>Movies Search</h1>
         <MoviesForm />
         <Modal>
           <MovieInfo movieID={movieInfo} />
